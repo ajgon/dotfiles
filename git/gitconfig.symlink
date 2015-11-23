@@ -39,7 +39,7 @@
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 	editor = vim
-	pager = cat
+	pager = $HOME/.scripts/diff-highlight
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
 	ui = auto
