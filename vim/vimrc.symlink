@@ -16,21 +16,31 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
-NeoBundle 'bling/vim-airline'
+NeoBundle 'embear/vim-localvimrc'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
+"NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'idanarye/vim-merginal'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'editorconfig/editorconfig-vim'
-" NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'janx/vim-rubytest'
-" NeoBundle 'skalnik/vim-vroom'
-" NeoBundle 'tpope/vim-rvm'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-bundler'
+NeoBundle 'tpope/vim-projectionist'
+NeoBundle 'cespare/vim-sbd'
+
+"NeoBundle 'terryma/vim-multiple-cursors'
+"NeoBundle 'janx/vim-rubytest'
+NeoBundle 'janko-m/vim-test'
+""" NeoBundle 'skalnik/vim-vroom'
+""" NeoBundle 'tpope/vim-rvm'
+NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -44,13 +54,40 @@ NeoBundle 'Shougo/vimproc.vim', {
 " Required:
 call neobundle#end()
 
-" Required:
+" Filetypes:
+filetype on
+filetype indent on
 filetype plugin on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
+
+
+" ADDS
+let mapleader=","
+" Paste from system clipboard (if terminal supports it)
+if has('clipboard')
+  nnoremap <Leader>v :set paste<CR>"*p :set nopaste<CR>
+  vnoremap <Leader>c "*y
+endif
+nnoremap <Leader>s :w!<CR>
+" Indent code
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<i
+inoremap <S-Tab> <Esc><<i
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+" Ruby
+nnoremap <Leader>rr :Rake<Space>
+nnoremap <Leader>rrdm :Rake db:migrate<CR>
+nnoremap <Leader>rrdc :Rake db:create<CR>
+nnoremap <Leader>rrdd :Rake db:drop<CR>
+nnoremap <Leader>rrds :Rake db:setup<CR>
+nnoremap <Leader>rbi :Bundle install<CR>
+nnoremap <Leader>rbu :Bundle update<CR>
+nnoremap <Leader>rbo :Bopen<Space>
 
 " --------------------------
 " Plugins config
@@ -60,36 +97,50 @@ let g:airline_theme="powerlineish"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#show_tab_nr = 0
 
-" Unite
-nnoremap <C-P> :Unite file_mru file_rec/async file<CR>
-inoremap <C-P> <Esc>:Unite file_mru file_rec/async file<CR>
-hi link UniteCursorLine CursorLine
-hi UniteCursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
-
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-endif
+" Unite Fuzzy find files
+nnoremap <silent> <leader>p :Unite -auto-resize file_rec/async<cr>
+"nnoremap <silent> <leader>/ :Unite grep:.<cr>
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+let g:unite_split_rule = 'botright'
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+let g:unite_enable_start_insert = 1
+let g:unite_source_hisory_yank_enable = 1
+if executable('ack')
+  let g:unite_source_grep_command = 'ack'
+  let g:unite_source_grep_default_opts ='-i --smart-case --nogroup --nocolor'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_rec_async_command = 'ack -f --nofilter --nogroup --nocolor'
+endif
 
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-\   'ignore_pattern', join([
-\   '\.git/',
-\   'node_modules/',
-\   'vendor/',
-\ ], '\|'))
+call unite#custom#source('file_rec/async,file_rec/git', 'ignore_globs', [])
+"nnoremap <C-P> :Unite file_mru file_rec/async file<CR>
+"inoremap <C-P> <Esc>:Unite file_mru file_rec/async file<CR>
+"hi link UniteCursorLine CursorLine
+"hi UniteCursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 
-call unite#custom#profile('default', 'context', {
-\   'marked_icon': '✓',
-\   'start_insert': 1,
-\   'winheight': 10,
-\   'direction': 'botright',
-\   'cursor_line_highlight': 'UniteCursorLine'
-\ })
+"if executable('ack')
+  "let g:unite_source_grep_command = 'ack'
+  "let g:unite_source_grep_default_opts =
+    "\ '-i --smart-case --nogroup --nocolor'
+  "let g:unite_source_grep_recursive_opt = ''
+  "let g:unite_source_rec_async_command =
+    "\ 'ack -f --nofilter --nogroup --nocolor'
+"endif
+
+"call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+"call unite#custom#profile('default', 'context', {
+"\   'marked_icon': '✓',
+"\   'start_insert': 1,
+"\   'winheight': 10,
+"\   'direction': 'botright',
+"\   'cursor_line_highlight': 'UniteCursorLine'
+"\ })
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -100,51 +151,70 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+"let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_yaml_checkers = ['yamllint']
+let g:syntastic_enable_highlighting = 0
+highlight Search guibg=239 ctermbg=239
 
 " NERDTree
-nnoremap <C-K><C-B> :NERDTreeToggle<CR>
-inoremap <C-K><C-B> <Esc>:NERDTreeToggle<CR>
+nnoremap <Leader>kb :NERDTreeToggle<CR>
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " NERDCommenter
-nmap <C-C><C-C> <leader>c<space>
-imap <C-C><C-C> <Esc><leader>c<space>
-vmap <C-C><C-C> <leader>c<space>
+nmap <Leader>/ <leader>c<space>
+vmap <Leader>/ <leader>c<space>
 
 " NEOComplete
+let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#max_list = 10
+let g:neocomplete#enable_auto_select = 1
 
-" vim-fugitive
-nnoremap <C-G><C-S> :Gstatus<CR>
-inoremap <C-G><C-S> <Esc>:Gstatus<CR>
+" vim-localvimrc
+let g:localvimrc_persistent = 1
 
-" vim-rubytest
-nmap <C-C><C-T> <Plug>RubyFileRun
-imap <C-C><C-T> <Esc><Plug>RubyFileRun
-nmap <C-C><C-R> <Plug>RubyTestRunLast
-imap <C-C><C-R> <Esc><Plug>RubyTestRunLast
-let g:rubytest_in_quickfix = 1
+
+" vim-fugitive and vim-merginal
+nnoremap <silent> <Leader>gs :Gstatus<CR>
+nnoremap <silent> <Leader>gb :Gblame<CR>
+nnoremap <silent> <Leader>g/ :MerginalToggle<CR>
+set statusline+=%{fugitive#statusline()}
+"nnoremap <C-G><C-S> :Gstatus<CR>
+"inoremap <C-G><C-S> <Esc>:Gstatus<CR>
+
+" vim-test
+
+nmap <silent> <Leader>t :TestNearest<CR>
+nmap <silent> <Leader><Leader>t :TestLast<CR>
+nmap <silent> <Leader><Leader>T :TestSuite<CR>
+
+" projectionist
+nmap <silent> <Leader>T :A<CR>
 
 " --------------------------
 " Keybindings
 " --------------------------
-nnoremap <C-C><Right>     :bnext<CR>
-inoremap <C-C><Right>     <Esc>:bnext<CR>
-nnoremap <C-C><Left>     :bprevious<CR>
-inoremap <C-C><Left>     <Esc>:bprevious<CR>
-nnoremap <C-c><C-s>     :w<CR>
-inoremap <C-c><C-s>     <Esc>:w<CR>
-nnoremap <C-c><C-q>     :qa<CR>
-inoremap <C-c><C-q>    <Esc>:qa<CR>
-nnoremap <C-c><C-w>     :bd<CR>
-inoremap <C-c><C-w>     <Esc>:bd<CR>
-nmap <C-j> <C-W>j
-nmap <C-k> <C-W>k
-nmap <C-h> <C-W>h
-nmap <C-l> <C-W>l
-imap <C-j> <Esc><C-W>j
-imap <C-k> <Esc><C-W>k
-imap <C-h> <Esc><C-W>h
-imap <C-l> <Esc><C-W>l
+nnoremap <Leader><Right>     :bnext<CR>
+"inoremap <C-C><Right>     <Esc>:bnext<CR>
+nnoremap <Leader><Left>     :bprevious<CR>
+"inoremap <C-C><Left>     <Esc>:bprevious<CR>
+"nnoremap <C-c><C-s>     :w<CR>
+"inoremap <C-c><C-s>     <Esc>:w<CR>
+"nnoremap <C-c><C-q>     :qa<CR>
+"inoremap <C-c><C-q>    <Esc>:qa<CR>
+nnoremap <Leader>w     :Sbd<CR>
+"inoremap <C-c><C-w>     <Esc>:bd<CR>
+nmap <Leader>j <C-W>j
+nmap <Leader>k <C-W>k
+nmap <Leader>h <C-W>h
+nmap <Leader>l <C-W>l
+"imap <C-j> <Esc><C-W>j
+"imap <C-k> <Esc><C-W>k
+"imap <C-h> <Esc><C-W>h
+"imap <C-l> <Esc><C-W>l
 
 " --------------------------
 " Other options
@@ -166,7 +236,7 @@ set tabstop=4 shiftwidth=4 expandtab
 " hi CursorLine cterm=underline
 " Line Length limiter
 " set Search results highlight
-hi Search cterm=NONE ctermbg=NONE guibg=NONE
+"hi Search cterm=NONE ctermbg=NONE guibg=NONE
 set colorcolumn=120
 hi ColorColumn ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
 " Allow to switch buffer without saving
@@ -177,3 +247,4 @@ autocmd BufWritePre * :%s/\s\+$//e
 silent !stty -ixon > /dev/null 2>/dev/null
 
 set backspace=indent,eol,start
+

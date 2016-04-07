@@ -33,5 +33,7 @@ for file in ~/.{exports,aliases,functions,fun,extra}; do
 done
 unset file
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin:$HOME/.local/bin" # Add RVM to PATH for scripting
 [ -s "$HOME/.nvm/nvm.sh"  ] && . "$HOME/.nvm/nvm.sh" # Add NVM support
+
+export DOKKU_HOST=xapp.ovh
