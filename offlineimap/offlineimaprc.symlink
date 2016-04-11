@@ -1,0 +1,21 @@
+[general]
+accounts = sslirgon
+socktimeout = 90
+
+[Account sslirgon]
+localrepository = sslirgonLocal
+remoterepository = sslirgonRemote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository sslirgonRemote]
+type = IMAP
+remotehost = localhost
+remoteuser = igor@rzegocki.pl
+remotepass = ********
+ssl = yes
+
+[Repository sslirgonLocal]
+type = Maildir
+localfolders = ~/mail
+restoreatime = no
