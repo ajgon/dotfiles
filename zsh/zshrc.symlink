@@ -19,6 +19,10 @@ export DISABLE_AUTO_UPDATE="true"
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
 
+# Custom ENVs
+export ONEPASSWORD_KEYCHAIN=~/1password/1Password.agilekeychain
+export PATH=~/.local/bin:$PATH
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git gem npm heroku brew rails zsh-syntax-highlighting tmuxinator)

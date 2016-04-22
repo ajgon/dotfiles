@@ -79,8 +79,8 @@ set copy = yes                       # copy to sent folder
 set send_charset="us-ascii:utf-8"    # supported charsets in sent messages
 
 # ----------------------------------------------------
-set smtp_url="********"
-set smtp_pass="********"
+set smtp_url="smtps://igor@rzegocki.pl@ssl.irgon.com:465/"
+set smtp_pass="`. ~/.passwords && echo -n $EMAIL_PASSWORD`"
 set mark_old = no
 set auto_tag = yes
 set ssl_force_tls=yes

@@ -1,6 +1,7 @@
 [general]
 accounts = sslirgon
 socktimeout = 90
+pythonfile = ~/.scripts/offlineimap.py
 
 [Account sslirgon]
 localrepository = sslirgonLocal
@@ -12,7 +13,7 @@ postsynchook = notmuch new
 type = IMAP
 remotehost = localhost
 remoteuser = igor@rzegocki.pl
-remotepass = ********
+remotepasseval = os.popen('. ~/.passwords && echo $EMAIL_PASSWORD').read().strip()
 ssl = yes
 
 [Repository sslirgonLocal]

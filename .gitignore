@@ -1,6 +1,7 @@
 .DS_Store
 .*~
 
+linux/config.symlink/subliminal/
 cache.symlink/*
 !cache.symlink/.keep
 mutt/mutt.symlink/temp/*
