@@ -21,6 +21,7 @@ export DISABLE_AUTO_UPDATE="true"
 
 # Custom ENVs
 export ONEPASSWORD_KEYCHAIN=~/1password/1Password.agilekeychain
+export HOMEBREW_NO_ANALYTICS=1
 export PATH=~/.local/bin:$PATH
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)

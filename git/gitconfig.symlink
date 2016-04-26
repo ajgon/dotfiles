@@ -61,4 +61,7 @@
 	log = true
 
 [push]
-	default = matching
+    default = matching
+
+[homebrew]
+	analyticsdisabled = true
