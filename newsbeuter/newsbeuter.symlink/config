@@ -1,0 +1,14 @@
+auto-reload yes
+refresh-on-startup yes
+reload-time 10
+feed-sort-order firsttag
+feedlist-format "[%10T] %n %11u %t"
+browser "python ~/.scripts/r.py %u > /tmp/read.html && w3m /tmp/read.html"
+
+urls-source "opml"
+opml-url "http://feedly.com/v3/opml?feedlyToken=`echo $FEEDLY_TOKEN`%3Afeedly"
+
+unbind-key g
+bind-key g open-in-browser-and-mark-read
+
+include "~/.newsbeuter/themes/solarized-dark"
