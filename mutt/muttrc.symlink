@@ -87,7 +87,7 @@ set ssl_force_tls=yes
 
 unignore List-Unsubscribe
 
-mailboxes =INBOX =Sent =Drafts =Spam =Trash =__Action =_server
+mailboxes =INBOX =Sent =Drafts =Spam =Trash =__Action =_server `echo $MUTT_MAILBOXES`
 
 # key bindings
 bind index,pager c mail
