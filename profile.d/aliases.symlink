@@ -99,3 +99,5 @@ elif [[ $(uname -s) == "Linux" ]]; then
 fi
 
 alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
+
+alias deedee='mosh --ssh="/usr/bin/ssh -i ~/.ssh/deedee" ajgon@ssl.irgon.com'
