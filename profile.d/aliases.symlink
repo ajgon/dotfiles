@@ -98,7 +98,4 @@ elif [[ $(uname -s) == "Linux" ]]; then
     source ~/.profile.linux.d/aliases
 fi
 
-# Speed up npm
-alias npm=npm set progress=false && npm
-
 alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
