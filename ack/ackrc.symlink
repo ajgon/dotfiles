@@ -3,6 +3,7 @@
 --ignore-dir=vendor
 --ignore-dir=public/generated
 --ignore-dir=node_modules
+--ignore-dir=bower_components
 --sort-files
 --type-add=haml:ext:haml
 --type-add=twig:ext:twig

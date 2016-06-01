@@ -40,6 +40,7 @@ unset file
 
 export PATH="$PATH:$HOME/.rvm/bin:$HOME/.local/bin" # Add RVM to PATH for scripting
 [ -s "$HOME/.nvm/nvm.sh"  ] && . "$HOME/.nvm/nvm.sh" # Add NVM support
+export PATH="node_modules/.bin:$PATH"
 npm set progress=false
 
 export DOKKU_HOST=xapp.ovh
