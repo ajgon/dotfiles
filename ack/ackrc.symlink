@@ -7,3 +7,4 @@
 --sort-files
 --type-add=haml:ext:haml
 --type-add=twig:ext:twig
+--type-add=hbs:ext:hbs

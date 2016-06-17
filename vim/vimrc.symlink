@@ -21,7 +21,7 @@ NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'Shougo/unite.vim'
 "NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-fugitive'
@@ -36,6 +36,7 @@ NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'cespare/vim-sbd'
 NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'hjdivad/vimlocalhistory'
 
 "NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'janx/vim-rubytest'
@@ -93,6 +94,8 @@ nnoremap <Leader>rrds :Rake db:setup<CR>
 nnoremap <Leader>rbi :Bundle install<CR>
 nnoremap <Leader>rbu :Bundle update<CR>
 nnoremap <Leader>rbo :Bopen<Space>
+" Marked
+nnoremap <leader>b :silent !open -a Marked\ 2.app '%:p'<CR>:redraw!<CR>
 
 " --------------------------
 " Plugins config
@@ -201,21 +204,25 @@ nmap <silent> <Leader>t :TestNearest<CR>
 nmap <silent> <Leader><Leader>t :TestLast<CR>
 nmap <silent> <Leader><Leader>T :TestSuite<CR>
 
+" vimlocalhistory
+let g:vlh_repository_dir = "vim/vim.symlink/localhistory"
+
 " projectionist
 nmap <silent> <Leader>T :A<CR>
 
 " --------------------------
 " Keybindings
 " --------------------------
-nnoremap <Leader><Right>     :bnext<CR>
+nnoremap <Leader><Right>    <C-W>l:bnext<CR>
 "inoremap <C-C><Right>     <Esc>:bnext<CR>
-nnoremap <Leader><Left>     :bprevious<CR>
+nnoremap <Leader><Left>     <C-W>l:bprevious<CR>
 "inoremap <C-C><Left>     <Esc>:bprevious<CR>
 "nnoremap <C-c><C-s>     :w<CR>
 "inoremap <C-c><C-s>     <Esc>:w<CR>
 "nnoremap <C-c><C-q>     :qa<CR>
 "inoremap <C-c><C-q>    <Esc>:qa<CR>
 nnoremap <Leader>w     :Sbd<CR>
+nnoremap <Leader>wa     :bufdo Sbd<CR>
 nnoremap <Leader>W     :bd<CR>
 "inoremap <C-c><C-w>     <Esc>:bd<CR>
 nmap <Leader>j <C-W>j

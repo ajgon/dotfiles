@@ -15,6 +15,8 @@ vim/vim.symlink/bundle/*
 !vim/vim.symlink/bundle/neobundle.vim
 *.backup
 
+vim/vim.symlink/localhistory/*
+!vim/vim.symlink/localhistory/.keep
 w3m/w3m.symlink/*
 !w3m/w3m.symlink/keymap
 newsbeuter/newsbeuter.symlink/*
