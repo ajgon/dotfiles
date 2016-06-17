@@ -77,6 +77,7 @@ set include = yes                    # include message in replies
 set forward_quote = yes              # include message in forwards
 set copy = yes                       # copy to sent folder
 set send_charset="us-ascii:utf-8"    # supported charsets in sent messages
+set query_command="pc_query -m '%s'" # address autocomplete
 
 # ----------------------------------------------------
 set smtp_url="smtps://igor@rzegocki.pl@ssl.irgon.com:465/"
@@ -102,9 +103,11 @@ bind index,pager K sidebar-prev
 bind index,pager J sidebar-next
 bind index,pager L sidebar-open
 bind index,pager H sidebar-open
+bind editor <Tab> complete-query
 
 macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
 macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+macro attach o "<shell-escape>rm -rf /tmp/.mutt-tmp/ > /dev/null 2>&1; mkdir /tmp/.mutt-tmp/<enter><save-entry><kill-line>/tmp/.mutt-tmp/<enter>y<enter><shell-escape>$HOME/.scripts/mutt-attachment-url.sh /tmp/.mutt-tmp/*<enter>"
 
 bind pager h next-page
 bind pager j next-line

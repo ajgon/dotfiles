@@ -32,8 +32,8 @@ source $ZSH/oh-my-zsh.sh
 #~/OH-MY-ZSH~#
 
 
-# Load ~/.exports, ~/.aliases, ~/.functions, ~/.fun, and ~/.extra
-for file in ~/.{exports,aliases,functions,fun,extra}; do
+# Load ~/.exports, ~/.aliases, ~/.functions, ~/.fun, ~/.extra and ~/.passwords
+for file in ~/.{exports,aliases,functions,fun,extra,passwords}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
