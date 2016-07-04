@@ -37,6 +37,7 @@ NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'cespare/vim-sbd'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'hjdivad/vimlocalhistory'
+NeoBundle 'jistr/vim-nerdtree-tabs'
 
 "NeoBundle 'terryma/vim-multiple-cursors'
 "NeoBundle 'janx/vim-rubytest'
@@ -166,7 +167,7 @@ let g:syntastic_enable_highlighting = 0
 highlight Search guibg=grey ctermbg=grey
 
 " NERDTree
-nnoremap <Leader>kb :NERDTreeToggle<CR>
+nnoremap <Leader>kb :NERDTreeTabsToggle<CR>
 let NERDTreeShowHidden=1
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -222,8 +223,13 @@ nnoremap <Leader><Left>     <C-W>l:bprevious<CR>
 "nnoremap <C-c><C-q>     :qa<CR>
 "inoremap <C-c><C-q>    <Esc>:qa<CR>
 nnoremap <Leader>w     :Sbd<CR>
-nnoremap <Leader>wa     :bufdo Sbd<CR>
+nnoremap <Leader>x     :Sbdm<CR>
 nnoremap <Leader>W     :bd<CR>
+nnoremap <Leader>X     :bd!<CR>
+nnoremap <Leader>aw     :bufdo Sbd<CR>
+nnoremap <Leader>ax     :bufdo Sbdm<CR>
+nnoremap <Leader>aW     :bufdo bd<CR>
+nnoremap <Leader>aX     :bufdo bd!<CR>
 "inoremap <C-c><C-w>     <Esc>:bd<CR>
 nmap <Leader>j <C-W>j
 nmap <Leader>k <C-W>k
@@ -263,6 +269,8 @@ set hidden
 autocmd BufWritePre * :%s/\s\+$//e
 " Fix terminal
 silent !stty -ixon > /dev/null 2>/dev/null
+set lazyredraw
+set ttyfast
 
 set backspace=indent,eol,start
 

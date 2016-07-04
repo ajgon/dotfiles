@@ -26,7 +26,7 @@ export PATH=~/.local/bin:$PATH
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gem npm heroku brew rails zsh-syntax-highlighting tmuxinator)
+plugins=(battery git gem npm heroku brew rails zsh-syntax-highlighting tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 #~/OH-MY-ZSH~#
