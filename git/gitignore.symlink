@@ -19,3 +19,4 @@ Thumbs.db
 *.sublime-workspace
 .idea
 tags
+gems.tags
