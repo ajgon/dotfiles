@@ -105,6 +105,7 @@ bind index,pager L sidebar-open
 bind index,pager H sidebar-open
 bind editor <Tab> complete-query
 
+macro index,pager t "<pipe-message>$HOME/.scripts/mutt2task.py<enter>"
 macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
 macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
 macro attach o "<shell-escape>rm -rf /tmp/.mutt-tmp/ > /dev/null 2>&1; mkdir /tmp/.mutt-tmp/<enter><save-entry><kill-line>/tmp/.mutt-tmp/<enter>y<enter><shell-escape>$HOME/.scripts/mutt-attachment-url.sh /tmp/.mutt-tmp/*<enter>"
