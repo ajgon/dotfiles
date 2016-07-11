@@ -35,8 +35,8 @@ NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'cespare/vim-sbd'
 NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'hjdivad/vimlocalhistory'
 NeoBundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'serby/vim-historic'
 
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'janko-m/vim-test'
@@ -200,8 +200,8 @@ nmap <silent> <Leader>t :TestNearest<CR>
 nmap <silent> <Leader><Leader>t :TestLast<CR>
 nmap <silent> <Leader><Leader>T :TestSuite<CR>
 
-" vimlocalhistory
-let g:vlh_repository_dir = "vim/vim.symlink/localhistory"
+" vim-historic
+let g:historicBackupRepoLocation = "~/.vim/localhistory"
 
 " projectionist
 nmap <silent> <Leader>T :A<CR>
