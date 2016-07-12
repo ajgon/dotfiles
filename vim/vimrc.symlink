@@ -41,15 +41,17 @@ NeoBundle 'serby/vim-historic'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'janko-m/vim-test'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
+if executable('make') || executable('gmake')
+  NeoBundle 'Shougo/vimproc.vim', {
+\   'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
 \     'cygwin' : 'make -f make_cygwin.mak',
 \     'mac' : 'make -f make_mac.mak',
 \     'linux' : 'make',
 \     'unix' : 'gmake',
-\    },
+\   },
 \ }
+endif
 
 " Required:
 call neobundle#end()
@@ -103,7 +105,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline_section_x = '%{airline#util#wrap(airline#parts#filetype(),0)} %{airline#util#wrap(rvm#statusline(),0)}'
+if executable('rvm')
+  let g:airline_section_x = '%{airline#util#wrap(airline#parts#filetype(),0)} %{airline#util#wrap(rvm#statusline(),0)}'
+endif
 
 " Unite Fuzzy find files
 nnoremap <silent> <leader>p <C-W>l:Unite -auto-resize file_rec/async<cr>
