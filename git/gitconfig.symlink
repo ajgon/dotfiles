@@ -23,16 +23,18 @@
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 	# Interactive rebase with the given number of latest commits
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
-	ci = commit
+	ci = commit -S
 	co = checkout
 	st = status
 	br = branch
     sh = show --stat --oneline
     lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+    ls = log --show-signature
 
 [user]
     name = Igor Rzegocki
-    email = ajgon@irgon.com
+    email = igor@rzegocki.pl
+	signingkey = 26B27548
 
 [core]
 	# Use custom `.gitignore` and `.gitattributes`
@@ -64,4 +66,7 @@
     default = matching
 
 [homebrew]
-	analyticsdisabled = true
+    analyticsdisabled = true
+
+[commit]
+	gpgsign = true
