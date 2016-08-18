@@ -125,7 +125,7 @@ macro index q "<change-folder> =INBOX<enter>"  "go to Inbox"
 macro index,pager gi "<change-folder> =INBOX<enter>"  "go to Inbox"
 macro index,pager gt "<change-folder> =Sent<enter>"  "go to Sent"
 macro index,pager gd "<change-folder> =Drafts<enter>"  "go to Drafts"
-macro index,pager gl "<change-folder>?"
+macro index,pager gl "<change-folder>?<search>"
 macro index,pager I "<clear-flag>N" "Mark as read"
 
 macro index "!" ":set confirmappend=no delete=yes\n<tag-prefix><clear-flag>N<save-message>=Spam\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n" "Move to Spam"
