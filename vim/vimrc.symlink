@@ -259,6 +259,8 @@ set number
 syntax on
 " Tab width
 set tabstop=4 shiftwidth=4 expandtab
+" autocomplete vim commands
+set wildmenu
 " Cursor line
 " set cursorline
 " hi CursorLine cterm=underline
@@ -275,6 +277,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 silent !stty -ixon > /dev/null 2>/dev/null
 set lazyredraw
 set ttyfast
+" Make search better
+set incsearch
+set hlsearch
+noremap <leader><space> :nohlsearch<CR>
 
 set backspace=indent,eol,start
 
