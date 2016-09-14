@@ -77,7 +77,6 @@ set include = yes                    # include message in replies
 set forward_quote = yes              # include message in forwards
 set copy = yes                       # copy to sent folder
 set send_charset="us-ascii:utf-8"    # supported charsets in sent messages
-set query_command="pc_query -m '%s'" # address autocomplete
 
 # ----------------------------------------------------
 set smtp_url="smtps://igor@rzegocki.pl@ssl.irgon.com:465/"
@@ -89,6 +88,10 @@ set ssl_force_tls=yes
 unignore List-Unsubscribe
 
 mailboxes =INBOX =Sent =Drafts =Spam =Trash =__Action =_server `echo $MUTT_MAILBOXES`
+
+# contacts autocomplete
+set query_command="goobook query %s"
+bind editor <Tab> complete-query
 
 # key bindings
 bind index,pager c mail
@@ -103,7 +106,6 @@ bind index,pager K sidebar-prev
 bind index,pager J sidebar-next
 bind index,pager L sidebar-open
 bind index,pager H sidebar-open
-bind editor <Tab> complete-query
 
 #macro index,pager t "<pipe-message>$HOME/.scripts/mutt2task.py<enter>"
 macro index,pager t "<pipe-message>$HOME/.scripts/mutt-calendar-extract-message.sh<enter><shell-escape>$HOME/.scripts/mutt-calendar.sh<enter>"
