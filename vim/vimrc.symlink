@@ -35,6 +35,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-projectionist'
+NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'cespare/vim-sbd'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'jistr/vim-nerdtree-tabs'
@@ -69,7 +70,6 @@ filetype plugin on
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
-
 " ADDS
 let mapleader=","
 " Paste from system clipboard (if terminal supports it)
@@ -78,6 +78,7 @@ if has('clipboard')
   vnoremap <Leader>c "*y
 endif
 nnoremap <Leader>s :w!<CR>
+inoremap <Leader>s <Esc>:w!<CR>
 "nnoremap <Leader>sq :wq!<CR>
 nnoremap <Leader>q :qa<CR>
 nnoremap <Leader>Q :qa!<CR>
@@ -96,6 +97,7 @@ nnoremap <Leader>rrds :Rake db:setup<CR>
 nnoremap <Leader>rbi :Bundle install<CR>
 nnoremap <Leader>rbu :Bundle update<CR>
 nnoremap <Leader>rbo :Bopen<Space>
+nnoremap <Leader>or !bundle exec overcommit -r<CR>
 " Marked
 nnoremap <leader>b :silent !open -a Marked\ 2.app '%:p'<CR>:redraw!<CR>
 
@@ -175,6 +177,7 @@ highlight Search guibg=grey ctermbg=grey
 " NERDTree
 nnoremap <Leader>kb :NERDTreeTabsToggle<CR>
 let NERDTreeShowHidden=1
+let g:NERDTreeWinSize = 54
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " NERDCommenter
@@ -209,7 +212,7 @@ set shell=sh
 nmap <silent> <Leader>t :TestNearest<CR>
 nmap <silent> <Leader><Leader>t :TestLast<CR>
 nmap <silent> <Leader><Leader>T :TestSuite<CR>
-
+let test#strategy = "dispatch"
 " vim-historic
 let g:historicBackupRepoLocation = "~/.vim/localhistory"
 
@@ -273,8 +276,6 @@ set wildmenu
 " Line Length limiter
 " set Search results highlight
 "hi Search cterm=NONE ctermbg=NONE guibg=NONE
-set colorcolumn=120
-hi ColorColumn ctermbg=darkgrey ctermfg=white guibg=darkgrey guifg=white
 " Allow to switch buffer without saving
 set hidden
 " Trim trailing whitespaces on save
@@ -290,7 +291,14 @@ noremap <leader><space> :nohlsearch<CR>
 
 set backspace=indent,eol,start
 
-" Don't be a noob, join the no arrows key movement
+" cursorline and colorcolumn
+set colorcolumn=120
+set cursorline
+hi ColorColumn ctermbg=239 ctermfg=white guibg=darkgrey guifg=white
+hi CursorLine ctermbg=239 cterm=none
+hi CursorLineNr ctermfg=43 cterm=none
+
+" I'm gonna hate myself for that
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>
@@ -301,6 +309,6 @@ noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
 " Removing escape
-ino jj <esc>
-cno jj <c-c>
-vno v <esc>
+inoremap jj <esc>
+cnoremap jj <c-c>
+vnoremap v <esc>

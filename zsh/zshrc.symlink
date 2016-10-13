@@ -23,6 +23,7 @@ export DISABLE_AUTO_UPDATE="true"
 export ONEPASSWORD_KEYCHAIN=~/1password/1Password.agilekeychain
 export HOMEBREW_NO_ANALYTICS=1
 export PATH=~/.local/bin:$PATH
+export GPG_TTY=$(tty)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -40,7 +41,7 @@ unset file
 
 export PATH="$PATH:$HOME/Library/Python/2.7/bin/:$HOME/.rvm/bin:$HOME/.local/bin" # Add RVM to PATH for scripting
 [ -s "$HOME/.nvm/nvm.sh"  ] && . "$HOME/.nvm/nvm.sh" # Add NVM support
-export PATH="node_modules/.bin:$PATH"
-npm set progress=false
+export PATH="$HOME/Library/Python/2.7/bin:node_modules/.bin:$PATH"
+which -s npm > /dev/null 2>&1 && npm set progress=false
 
 export DOKKU_HOST=xapp.ovh
