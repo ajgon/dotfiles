@@ -1,74 +1,46 @@
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+"vim-plug -------------------------------------
+if &compatible
+  set nocompatible
 endif
+call plug#begin('~/.vim/bundle')
+Plug 'embear/vim-localvimrc'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Shougo/unite.vim'
+"Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'jiangmiao/auto-pairs'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'editorconfig/editorconfig-vim'
+"Plug 'Shougo/neocomplete.vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-dispatch'
+Plug 'cespare/vim-sbd'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'serby/vim-historic'
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle'))
+" Ruby
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+Plug 'tpope/vim-rvm'
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Add or remove your Bundles here:
-NeoBundle 'embear/vim-localvimrc'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'scrooloose/syntastic'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'idanarye/vim-merginal'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
-NeoBundle 'editorconfig/editorconfig-vim'
-"NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'tpope/vim-rvm'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'tpope/vim-bundler'
-NeoBundle 'tpope/vim-projectionist'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'cespare/vim-sbd'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'serby/vim-historic'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'janko-m/vim-test'
-NeoBundle 'vim-ruby/vim-ruby'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'janko-m/vim-test'
 if executable('make') || executable('gmake')
-  NeoBundle 'Shougo/vimproc.vim', {
-\   'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\   },
-\ }
+  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 endif
-NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
-NeoBundle 'ryanoasis/vim-devicons'
 
-" Required:
-call neobundle#end()
+call plug#end()
 
 " Filetypes:
 filetype on
 filetype indent on
 filetype plugin on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
 
 " ADDS
 let mapleader=","
@@ -99,7 +71,7 @@ nnoremap <Leader>rbu :Bundle update<CR>
 nnoremap <Leader>rbo :Bopen<Space>
 nnoremap <Leader>or !bundle exec overcommit -r<CR>
 " Marked
-nnoremap <leader>b :silent !open -a Marked\ 2.app '%:p'<CR>:redraw!<CR>
+nnoremap <Leader>b :silent !open -a Marked\ 2.app '%:p'<CR>:redraw!<CR>
 
 " --------------------------
 " Plugins config
@@ -117,9 +89,11 @@ if executable('rvm')
   let g:airline_section_x = '%{airline#util#wrap(airline#parts#filetype(),0)} %{airline#util#wrap(rvm#statusline(),0)}'
 endif
 
+" EditorConfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 " Unite Fuzzy find files
-nnoremap <silent> <leader>p <C-W>l:Unite -auto-resize file_rec/async<cr>
-"nnoremap <silent> <leader>/ :Unite grep:.<cr>
+nnoremap <silent> <Leader>p <C-W>l:Unite -auto-resize file_rec/async<cr>
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
@@ -181,8 +155,8 @@ let g:NERDTreeWinSize = 54
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " NERDCommenter
-nmap <Leader>/ <leader>c<space>
-vmap <Leader>/ <leader>c<space>
+nmap <Leader>/ <Leader>c<space>
+vmap <Leader>/ <Leader>c<space>
 
 " NEOComplete
 "let g:acp_enableAtStartup = 0
@@ -198,10 +172,10 @@ vmap <Leader>/ <leader>c<space>
 let g:localvimrc_persistent = 1
 
 " vim-fugitive and vim-merginal
-nnoremap <silent> <Leader>gs :Gstatus<CR>
-nnoremap <silent> <Leader>gb :Gblame<CR>
-nnoremap <silent> <Leader>g/ :MerginalToggle<CR>
-set statusline+=%{fugitive#statusline()}
+"nnoremap <silent> <Leader>gs :Gstatus<CR>
+"nnoremap <silent> <Leader>gb :Gblame<CR>
+"nnoremap <silent> <Leader>g/ :MerginalToggle<CR>
+"set statusline+=%{fugitive#statusline()}
 "nnoremap <C-G><C-S> :Gstatus<CR>
 "inoremap <C-G><C-S> <Esc>:Gstatus<CR>
 
@@ -258,6 +232,7 @@ nmap <Leader>l <C-W>l
 " --------------------------
 " Encoding
 set encoding=utf-8
+set fileencoding=utf-8
 " Display statusbar
 set laststatus=2
 " Set colors to 256
@@ -287,7 +262,7 @@ set ttyfast
 " Make search better
 set incsearch
 set hlsearch
-noremap <leader><space> :nohlsearch<CR>
+noremap <Leader><space> :nohlsearch<CR>
 
 set backspace=indent,eol,start
 
