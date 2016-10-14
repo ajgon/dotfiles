@@ -32,13 +32,13 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tpope/vim-rvm'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'tpope/vim-projectionist'
 NeoBundle 'cespare/vim-sbd'
 NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'serby/vim-historic'
-
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'janko-m/vim-test'
 NeoBundle 'vim-ruby/vim-ruby'
@@ -53,6 +53,8 @@ if executable('make') || executable('gmake')
 \   },
 \ }
 endif
+NeoBundle 'tiagofumo/vim-nerdtree-syntax-highlight'
+NeoBundle 'ryanoasis/vim-devicons'
 
 " Required:
 call neobundle#end()
@@ -100,6 +102,9 @@ nnoremap <leader>b :silent !open -a Marked\ 2.app '%:p'<CR>:redraw!<CR>
 " --------------------------
 " Plugins config
 " --------------------------
+" vim-devicons
+set guifont=Inconsolata\ for\ Powerline\ Nerd\ Font\ Complete\ Mono:h17
+let g:NERDTreeLimitedSyntax = 1
 " vim-airline
 let g:airline_theme="powerlineish"
 let g:airline#extensions#tabline#enabled = 1
@@ -285,3 +290,17 @@ noremap <leader><space> :nohlsearch<CR>
 
 set backspace=indent,eol,start
 
+" Don't be a noob, join the no arrows key movement
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
+
+" Removing escape
+ino jj <esc>
+cno jj <c-c>
+vno v <esc>
