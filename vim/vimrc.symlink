@@ -19,14 +19,20 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
 Plug 'cespare/vim-sbd'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'serby/vim-historic'
+
+" JS
+Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'html.mustache'] }
+
+" PHP
+Plug 'lumiliet/vim-twig'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'tpope/vim-rvm'
 
 Plug 'terryma/vim-multiple-cursors'
@@ -76,9 +82,6 @@ nnoremap <Leader>b :silent !open -a Marked\ 2.app '%:p'<CR>:redraw!<CR>
 " --------------------------
 " Plugins config
 " --------------------------
-" vim-devicons
-set guifont=Inconsolata\ for\ Powerline\ Nerd\ Font\ Complete\ Mono:h17
-let g:NERDTreeLimitedSyntax = 1
 " vim-airline
 let g:airline_theme="powerlineish"
 let g:airline#extensions#tabline#enabled = 1
