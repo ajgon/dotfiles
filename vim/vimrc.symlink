@@ -22,6 +22,7 @@ Plug 'cespare/vim-sbd'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'serby/vim-historic'
 Plug 'ervandew/supertab'
+Plug 'sjl/gundo.vim'
 
 " JS
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'html.mustache'] }
@@ -79,7 +80,8 @@ nnoremap <Leader>rbo :Bopen<Space>
 nnoremap <Leader>or !bundle exec overcommit -r<CR>
 " Marked
 nnoremap <Leader>b :silent !open -a Marked\ 2.app '%:p'<CR>:redraw!<CR>
-
+" gundo
+nnoremap <Leader>u :GundoToggle<CR>
 " --------------------------
 " Plugins config
 " --------------------------
