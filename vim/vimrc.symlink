@@ -21,6 +21,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'cespare/vim-sbd'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'serby/vim-historic'
+Plug 'ervandew/supertab'
 
 " JS
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'html.mustache'] }
