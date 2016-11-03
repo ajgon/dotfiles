@@ -1,6 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/ajgon/Projects/learn-chef/cookbooks/motd_ubuntu/.kitchen'
-let g:netrw_dirhist_2='/Users/ajgon/Projects/learn-chef'
-let g:netrw_dirhist_3='/Users/ajgon/Projects/bugwolf/backend'
-let g:netrw_dirhist_4='/Users/ajgon/Projects/bugwolf/backend/config'
+let g:netrw_dirhist_cnt =0

@@ -1,3 +1,6 @@
+# Alwas add a new session
+new-session
+
 # use 256 term for pretty colors
 set -g default-terminal "screen-256color"
 
@@ -5,7 +8,7 @@ set -g default-terminal "screen-256color"
 set -g history-limit 5000
 
 # disable mouse
-setw -g mode-mouse off
+# setw -g mode-mouse off
 
 # decrease command delay (increases vim responsiveness)
 set -sg escape-time 1
@@ -51,10 +54,6 @@ unbind r
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # Remap window navigation to vim
-unbind n
-bind n previous-window
-unbind m
-bind m next-window
 unbind j
 bind j select-pane -D
 unbind k
@@ -66,14 +65,14 @@ bind l select-pane -R
 
 unbind q
 bind q confirm kill-window
-unbind K
-bind K confirm kill-server
+unbind Q
+bind Q confirm kill-server
 
 ###########################
 # Status Bar
 ###########################
 # enable UTF-8 support in status bar
-set -g status-utf8 on
+# set -g status-utf8 on
 # set refresh interval for status bar
 set -g status-interval 30
 # center the status bar
@@ -99,3 +98,10 @@ set -g pane-border-fg colour235
 set -g pane-border-bg black
 set -g pane-active-border-fg green
 set -g pane-active-border-bg black
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

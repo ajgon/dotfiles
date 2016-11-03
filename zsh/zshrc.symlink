@@ -27,7 +27,7 @@ export GPG_TTY=$(tty)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(battery git gem npm heroku brew rails zsh-syntax-highlighting tmuxinator)
+plugins=(battery git gem npm heroku brew rails zsh-syntax-highlighting tmuxinator nvm)
 
 source $ZSH/oh-my-zsh.sh
 #~/OH-MY-ZSH~#
@@ -40,7 +40,6 @@ done
 unset file
 
 export PATH="$PATH:$HOME/Library/Python/2.7/bin/:$HOME/.rvm/bin:$HOME/.local/bin" # Add RVM to PATH for scripting
-[ -s "$HOME/.nvm/nvm.sh"  ] && . "$HOME/.nvm/nvm.sh" # Add NVM support
 export PATH="$HOME/Library/Python/2.7/bin:node_modules/.bin:$PATH"
 which -s npm > /dev/null 2>&1 && npm set progress=false
 
