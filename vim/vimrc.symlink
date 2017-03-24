@@ -20,7 +20,7 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
 Plug 'cespare/vim-sbd'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'serby/vim-historic'
+Plug 'ajgon/vim-historic'
 Plug 'ervandew/supertab'
 Plug 'sjl/gundo.vim'
 
@@ -195,6 +195,7 @@ nmap <silent> <Leader><Leader>T :TestSuite<CR>
 let test#strategy = "dispatch"
 " vim-historic
 let g:historicBackupRepoLocation = "~/.vim/localhistory"
+let g:historicBackupScriptLocation = "~/.vim/vim-historic-backup.sh"
 
 " projectionist
 nmap <silent> <Leader>T :A<CR>
