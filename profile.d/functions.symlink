@@ -218,15 +218,9 @@ function image() {
 # Docker nuke
 function docker() {
   local docker_exec=$(which -a docker | grep -E '^/' | head -n 1)
-  if [ $1 == 'nuke' ]; then
+  if [[ $1 == 'nuke' ]]; then
     $docker_exec stop $($docker_exec ps -q) > /dev/null 2>&1; $docker_exec rm $($docker_exec ps -aq) > /dev/null 2>&1; $docker_exec volume rm $($docker_exec volume ls -q) > /dev/null 2>&1; $docker_exec rmi $($docker_exec images -q) > /dev/null 2>&1; $docker_exec ps -a; $docker_exec images; $docker_exec volume ls
     return 0
-  fi
-  if [[ $(uname -s) == "Darwin" ]]; then
-    if [ $1 == 'eval' ]; then
-      eval $(docker-machine env default)
-      return 0
-    fi
   fi
   $docker_exec "$@"
 }

@@ -22,3 +22,4 @@ w3m/w3m.symlink/*
 newsbeuter/newsbeuter.symlink/*
 !newsbeuter/newsbeuter.symlink/config
 !newsbeuter/newsbeuter.symlink/themes
+vim/vim.symlink/.netrwhist

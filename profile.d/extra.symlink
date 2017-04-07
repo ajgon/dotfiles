@@ -3,18 +3,6 @@
 # Fix CTRL-Q and CTRL-S in terminal
 stty -ixon > /dev/null 2>&1
 
-# XHTMLized machines
-function xhtmlized() {
-    tmux new-session -d -s XHTMLized
-    tmux new-window -t XHTMLized:1 -n 'Gateway' -k 'ssh -A root@fw.xhtmlized.com'
-    tmux new-window -t XHTMLized:2 -n 'internal1.xh' -k 'ssh -tA root@fw.xhtmlized.com "ssh -A root@internal1.xh"'
-    tmux new-window -t XHTMLized:3 -n 'previewized1.xh' -k 'ssh -tA root@fw.xhtmlized.com "ssh -A root@previewized1.xh"'
-    tmux new-window -t XHTMLized:4 -n 'gitlab1.xh' -k 'ssh -tA root@fw.xhtmlized.com "ssh -A root@gitlab1.xh"'
-    tmux new-window -t XHTMLized:5 -n 'owncloud1.xh' -k 'ssh -tA root@fw.xhtmlized.com "ssh -A root@owncloud1.xh"'
-    tmux select-window -t XHTMLized:2
-    tmux -2 attach-session -t XHTMLized
-}
-
 if [[ $(uname -s) == "Darwin" ]]; then
     source ~/.profile.osx.d/extra
 elif [[ $(uname -s) == "Linux" ]]; then

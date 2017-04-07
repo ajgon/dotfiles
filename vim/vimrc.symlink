@@ -28,7 +28,7 @@ Plug 'sjl/gundo.vim'
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'html.mustache'] }
 
 " PHP
-Plug 'lumiliet/vim-twig'
+"Plug 'lumiliet/vim-twig'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }

@@ -14,7 +14,7 @@ export ZSH_THEME="eastwood"
 # export CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-export DISABLE_AUTO_UPDATE="true"
+#export DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
@@ -27,7 +27,7 @@ export GPG_TTY=$(tty)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(battery git gem npm heroku brew rails zsh-syntax-highlighting tmuxinator nvm)
+plugins=(git brew zsh-syntax-highlighting tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 #~/OH-MY-ZSH~#
@@ -41,6 +41,5 @@ unset file
 
 export PATH="$PATH:$HOME/Library/Python/2.7/bin/:$HOME/.rvm/bin:$HOME/.local/bin" # Add RVM to PATH for scripting
 export PATH="$HOME/Library/Python/2.7/bin:node_modules/.bin:$PATH"
-which -s npm > /dev/null 2>&1 && npm set progress=false
 
-export DOKKU_HOST=xapp.ovh
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
