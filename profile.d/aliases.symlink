@@ -100,4 +100,7 @@ fi
 
 alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
 
-alias deedee='mosh --ssh="/usr/bin/ssh -i $HOME/.ssh/deedee" ajgon@ssl.irgon.com -- tmux a'
+# ssh-ident
+alias ssh="~/.scripts/ssh-ident"
+alias deedee='mosh --ssh="$HOME/.scripts/ssh-ident" ajgon@ssl.irgon.com -- tmux a'
+alias osmc='ssh -A -t ajgon@ssl.irgon.com ssh osmc@osmc'
