@@ -202,7 +202,7 @@ To have multiple identities, all I have to do is:
   SSH_DEFAULT_OPTIONS = "-oUseRoaming=no"
 
   # Which options to use by default if no match with SSH_ADD_OPTIONS
-  # was found. Note that ssh-ident hard codes -t 7200 to prevent your
+  # was found. Note that ssh-ident hard codes -t 300 to prevent your
   # keys from remaining in memory for too long.
   SSH_ADD_DEFAULT_OPTIONS = "-t 300"
 
@@ -439,7 +439,7 @@ class Config(object):
       "SSH_ADD_OPTIONS": {},
       # ssh-add default options. By default, don't keep a key longer
       # than 2 hours.
-      "SSH_ADD_DEFAULT_OPTIONS": "-t 7200",
+      "SSH_ADD_DEFAULT_OPTIONS": "-t 300",
 
       # Like BatchMode in ssh, see man 5 ssh_config.
       # In BatchMode ssh-ident will not print any output and not ask for

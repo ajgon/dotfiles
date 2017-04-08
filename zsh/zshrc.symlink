@@ -39,7 +39,7 @@ for file in ~/.{exports,aliases,functions,fun,extra,passwords}; do
 done
 unset file
 
-export PATH="$PATH:$HOME/Library/Python/2.7/bin/:$HOME/.rvm/bin:$HOME/.local/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/Library/Python/2.7/bin:$HOME/.rvm/bin:$HOME/.local/bin" # Add RVM to PATH for scripting
 export PATH="$HOME/Library/Python/2.7/bin:node_modules/.bin:$PATH"
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
