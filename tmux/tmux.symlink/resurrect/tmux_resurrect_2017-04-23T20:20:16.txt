@@ -1,0 +1,7 @@
+pane	3	1	:zsh	1	:*	1	:/Users/ajgon	1	zsh	:
+pane	init	1	:deedee	1	:*	1	:/Users/ajgon	1	mosh-client	:/usr/local/Cellar/mobile-shell/1.3.0/bin/mosh-client -# --ssh=/Users/ajgon/.scripts/ssh-ident ajgon@ssl.irgon.com -- tmux a | 89.78.40.110 60001
+pane	init	2	:zsh	0	:-	1	:/Users/ajgon/.dotfiles	1	zsh	:
+window	3	1	1	:*	af00,181x50,0,0,3
+window	init	1	1	:*	c301,181x55,0,0,4
+window	init	2	0	:-	c302,181x55,0,0,5
+state	init	

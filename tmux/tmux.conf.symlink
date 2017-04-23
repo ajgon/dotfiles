@@ -32,6 +32,42 @@ set -g renumber-windows on
 set -g default-command "zsh"
 if-shell 'test "$(uname)" = "Darwin"' 'set -g default-command "reattach-to-user-namespace -l zsh"'
 
+# tmux-continuum
+set -g @continuum-restore 'on'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @resurrect-capture-pane-contents 'on'
+
+# Shift up/down to move between inner/outer tmuxes
+set -g status-bg colour235
+setw -g window-status-current-bg colour235
+
+bind -n C-t new-window -a
+bind -n S-left  prev
+bind -n S-right next
+bind -n S-C-left  swap-window -t -1
+bind -n S-C-right swap-window -t +1
+
+bind -n M-F11 set -qg status-bg colour25
+bind -n M-F12 set -qg status-bg colour235
+bind -n S-up \
+	send-keys M-F12 \; \
+	set -qg status-bg colour25 \; \
+	unbind -n S-left \; \
+	unbind -n S-right \; \
+	unbind -n S-C-left \; \
+	unbind -n S-C-right \; \
+	unbind -n C-t \; \
+	set -qg prefix C-b
+bind -n S-down \
+	send-keys M-F11 \; \
+	set -qg status-bg colour235 \; \
+	bind -n S-left  prev \; \
+	bind -n S-right next \; \
+	bind -n S-C-left swap-window -t -1 \; \
+	bind -n S-C-right swap-window -t +1 \; \
+	bind -n C-t new-window -a -c "#{pane_current_path}" \; \
+	set -qg prefix C-a
+
 ###########################
 #  Key Bindings
 ###########################
@@ -71,18 +107,20 @@ bind Q confirm kill-server
 ###########################
 # Status Bar
 ###########################
+set -g @batt_discharging_icon "📵"
 # enable UTF-8 support in status bar
-# set -g status-utf8 on
+set -g status-utf8 on
 # set refresh interval for status bar
 set -g status-interval 30
 # center the status bar
 set -g status-justify left
 # show session, window, pane in left status bar
 set -g status-left-length 40
-set -g status-left '#[fg=green]#S#[fg=blue] #I:#P#[default]'
+set -g status-left '#[fg=green]#S#[fg=blue] #I:#P#[default] '
 # show hostname, date, time, and battery in right status bar
-set-option -g status-right '#[fg=green]#H#[default] %m/%d/%y %I:%M\
- #[fg=red]#(battery discharging)#[default]#(battery charging)'
+set -g status-right-length 60
+set-option -g status-right '#{battery_status_bg}#{battery_icon} #{battery_percentage} #{battery_remain}#[default] | \
+#[fg=green]#H#[default] %m/%d/%y %I:%M'
 
 ###########################
 # Colors
@@ -102,6 +140,9 @@ set -g pane-active-border-bg black
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-battery'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
