@@ -27,3 +27,7 @@ newsbeuter/newsbeuter.symlink/*
 vim/vim.symlink/.netrwhist
 
 tmux/tmux.symlink/resurrect/*
+!tmux/tmux.symlink/resurrect/.keep
+tmux/tmux.symlink/plugins/*
+!tmux/tmux.symlink/plugins/tpm
+!tmux/tmux.symlink/plugins/.keep
