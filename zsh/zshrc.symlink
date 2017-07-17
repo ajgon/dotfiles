@@ -1,23 +1,6 @@
-#~OH-MY-ZSH~#
-# This section will be uncommented if:
-# a.) You don't change this file and delete this section AND
-# b.) You opt to install Oh-My_ZSH from the bootstratp
-
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
-
-# Set to the name theme to load.
-# Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="eastwood"
-
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-#export DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
+# Plugins
+source "$HOME/.zsh/autocomplete"
+source "$HOME/.zsh/git"
 
 # Custom ENVs
 export ONEPASSWORD_KEYCHAIN=~/1password/1Password.agilekeychain
@@ -25,21 +8,21 @@ export HOMEBREW_NO_ANALYTICS=1
 export PATH=~/.local/bin:$PATH
 export GPG_TTY=$(tty)
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew zsh-syntax-highlighting tmuxinator)
-
-source $ZSH/oh-my-zsh.sh
-#~/OH-MY-ZSH~#
-
-
 # Load ~/.exports, ~/.aliases, ~/.functions, ~/.fun, ~/.extra and ~/.passwords
 for file in ~/.{exports,aliases,functions,fun,extra,passwords}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
 
-export PATH="$PATH:$HOME/Library/Python/2.7/bin:$HOME/.rvm/bin:$HOME/.local/bin" # Add RVM to PATH for scripting
-export PATH="$HOME/Library/Python/2.7/bin:node_modules/.bin:$PATH"
-
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# Prompt Theme
+autoload -U colors && colors
+setopt PROMPT_SUBST
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}["
+ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+PROMPT='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
+
