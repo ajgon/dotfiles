@@ -19,11 +19,14 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-surround'
 Plug 'cespare/vim-sbd'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ajgon/vim-historic'
 Plug 'ervandew/supertab'
 Plug 'sjl/gundo.vim'
+Plug 'christoomey/vim-tmux-navigator'
+
 
 " JS
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'html.mustache'] }
@@ -93,10 +96,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline_section_x = '%{airline#util#wrap(ObsessionStatus(),0)}'
+let g:airline_section_x = '%{airline#util#wrap(airline#parts#filetype(),0)} %{airline#util#wrap(ObsessionStatus(),0)}'
 if executable('rvm')
   let g:airline_section_x = '%{airline#util#wrap(airline#parts#filetype(),0)} %{airline#util#wrap(rvm#statusline(),0)}'
 endif
+
+" vim-obsession
+autocmd VimEnter * Obsession `~/.vim/vim-session-path.sh`
 
 " EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -228,14 +234,18 @@ nnoremap <Leader>ax     :bufdo Sbdm<CR>
 nnoremap <Leader>aW     :bufdo bd<CR>
 nnoremap <Leader>aX     :bufdo bd!<CR>
 "inoremap <C-c><C-w>     <Esc>:bd<CR>
-nmap <Leader>j <C-W>j
-nmap <Leader>k <C-W>k
-nmap <Leader>h <C-W>h
-nmap <Leader>l <C-W>l
-"imap <C-j> <Esc><C-W>j
-"imap <C-k> <Esc><C-W>k
-"imap <C-h> <Esc><C-W>h
-"imap <C-l> <Esc><C-W>l
+"nmap <Leader>j <C-W>j
+"nmap <Leader>k <C-W>k
+"nmap <Leader>h <C-W>h
+"nmap <Leader>l <C-W>l
+imap <C-j> <Esc><C-W>j
+imap <C-k> <Esc><C-W>k
+imap <C-h> <Esc><C-W>h
+imap <C-l> <Esc><C-W>l
+nmap <C-j> <Esc><C-W>j
+nmap <C-k> <Esc><C-W>k
+nmap <C-h> <Esc><C-W>h
+nmap <C-l> <Esc><C-W>l
 
 " --------------------------
 " Other options

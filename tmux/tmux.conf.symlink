@@ -34,14 +34,13 @@ if-shell 'test "$(uname)" = "Darwin"' 'set -g default-command "reattach-to-user-
 
 # tmux-continuum
 set -g @continuum-restore 'on'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @continuum-save-interval '1'
 set -g @resurrect-capture-pane-contents 'on'
 
 # Shift up/down to move between inner/outer tmuxes
 set -g status-bg colour235
 setw -g window-status-current-bg colour235
 
-bind -n C-t new-window -a
 bind -n S-left  prev
 bind -n S-right next
 bind -n S-C-left  swap-window -t -1
@@ -56,7 +55,6 @@ bind -n S-up \
 	unbind -n S-right \; \
 	unbind -n S-C-left \; \
 	unbind -n S-C-right \; \
-	unbind -n C-t \; \
 	set -qg prefix C-b
 bind -n S-down \
 	send-keys M-F11 \; \
@@ -65,7 +63,6 @@ bind -n S-down \
 	bind -n S-right next \; \
 	bind -n S-C-left swap-window -t -1 \; \
 	bind -n S-C-right swap-window -t +1 \; \
-	bind -n C-t new-window -a -c "#{pane_current_path}" \; \
 	set -qg prefix C-a
 
 ###########################
@@ -89,27 +86,22 @@ bind - split-window -v
 unbind r
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
-# Remap window navigation to vim
-unbind j
-bind j select-pane -D
-unbind k
-bind k select-pane -U
-unbind h
-bind h select-pane -L
-unbind l
-bind l select-pane -R
-
 unbind q
 bind q confirm kill-window
 unbind Q
 bind Q confirm kill-server
 
+setw -g mode-keys vi
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-pipe "reattach-to-user-namespace pbcopy"
+unbind -T copy-mode-vi Enter
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe "reattach-to-user-namespace pbcopy"
+
+
 ###########################
 # Status Bar
 ###########################
 set -g @batt_discharging_icon "📵"
-# enable UTF-8 support in status bar
-set -g status-utf8 on
 # set refresh interval for status bar
 set -g status-interval 30
 # center the status bar
@@ -119,7 +111,7 @@ set -g status-left-length 40
 set -g status-left '#[fg=green]#S#[fg=blue] #I:#P#[default] '
 # show hostname, date, time, and battery in right status bar
 set -g status-right-length 60
-set-option -g status-right '#{battery_status_bg}#{battery_icon} #{battery_percentage} #{battery_remain}#[default] | \
+set-option -g status-right '#{battery_icon} #{battery_percentage} #{battery_remain}#[default] | \
 #[fg=green]#H#[default] %m/%d/%y %I:%M'
 
 ###########################
@@ -143,9 +135,11 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-battery'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'christoomey/vim-tmux-navigator'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
 
 # Fix scroll o iTerm
+unbind C-t
 set -g terminal-overrides 'xterm*:smcup@:rmcup@'

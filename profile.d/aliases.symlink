@@ -104,3 +104,6 @@ alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
 alias ssh="~/.scripts/ssh-ident"
 alias deedee='mosh --ssh="$HOME/.scripts/ssh-ident" ajgon@ssl.irgon.com -- tmux a'
 alias osmc='ssh -A -t ajgon@ssl.irgon.com ssh osmc@osmc'
+
+# git
+alias git="BROWSER='open -b com.google.Chrome' hub"

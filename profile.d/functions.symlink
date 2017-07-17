@@ -19,6 +19,11 @@ function calc() {
     printf "\n"
 }
 
+# Weather
+function wttr () {
+  curl "http://pl.wttr.in/$1"
+}
+
 # Create a new directory and enter it
 function take () {
     mkdir -p "$@" && cd "$@"
@@ -215,12 +220,21 @@ function image() {
     convert $1 -resize 40 txt:-|sed -E 's/://;s/\( ? ?//;s/, ? ?/,/g;s/\)//;s/([0-9]+,[0-9]+,[0-9]+),[0-9]+/\1/g;s/255/254/g;/mage/d'|awk '{print $1,$2}'|sed -E 's/^0,[0-9]+ /print "echo;tput setaf "\;/;s/^[0-9]+,[0-9]+ /print "tput setaf ";/;s/(.+),(.+),(.+)/\1\/42.5*36+\2\/42.5*6+\3\/42.5+16/'|bc|sed 's/$/;echo -n "  ";/'|tr '\n' ' '|sed 's/^/tput rev;/;s/; /;/g;s/$/tput sgr0;echo/'|bash
 }
 
-# Docker nuke
+# Docker nuke and cleanup
 function docker() {
   local docker_exec=$(which -a docker | grep -E '^/' | head -n 1)
   if [[ $1 == 'nuke' ]]; then
     $docker_exec stop $($docker_exec ps -q) > /dev/null 2>&1; $docker_exec rm $($docker_exec ps -aq) > /dev/null 2>&1; $docker_exec volume rm $($docker_exec volume ls -q) > /dev/null 2>&1; $docker_exec rmi $($docker_exec images -q) > /dev/null 2>&1; $docker_exec ps -a; $docker_exec images; $docker_exec volume ls
     return 0
+  fi
+  if [[ $1 == 'cleanup' ]]; then
+    $docker_exec ps --filter status=dead --filter status=exited -aq | xargs $docker_exec rm -v
+    $docker_exec images --no-trunc | grep '<none>' | awk '{ print $3  }' | xargs $docker_exec rmi
+    $docker_exec volume ls -qf dangling=true | xargs $docker_exec volume rm
+    return 0
+  fi
+  if [[ $1 == 'synctime' ]]; then
+    docker run -it --rm --privileged --pid=host debian nsenter -t 1 -m -u -n -i date -u $(date -u +%m%d%H%M%Y)
   fi
   $docker_exec "$@"
 }
