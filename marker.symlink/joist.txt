@@ -1,0 +1,20 @@
+heroku run rails console --app alpha-joistapp##alpha app console
+heroku run rails console --app joist-alpha-payment##alpha payment console
+heroku run rails console --app joist-alpha-features##alpha features console
+heroku run rails console --app staging-joistapp##staging app console
+heroku run rails console --app joist-staging-payment##staging payment console
+heroku run rails console --app joist-staging-features##staging features console
+heroku run rails console --app joistapp##production app console
+heroku run rails console --app joist-payment##production payment console
+heroku run rails console --app joist-features##production features console
+heroku run logs --tail --app alpha-joistapp##alpha app logs
+heroku run logs --tail --app joist-alpha-payment##alpha payment logs
+heroku run logs --tail --app joist-alpha-features##alpha features logs
+heroku run logs --tail --app staging-joistapp##staging app logs
+heroku run logs --tail --app joist-staging-payment##staging payment logs
+heroku run logs --tail --app joist-staging-features##staging features logs
+heroku run logs --tail --app joistapp##production app logs
+heroku run logs --tail --app joist-payment##production payment logs
+heroku run logs --tail --app joist-features##production features logs
+docker-compose run $(docker-compose config --services | grep -E 'dev|web|gem|lib|client|base' | head -n 1) bundle update && docker-compose build; notify "Update done"##joist bundle update
+docker-compose run $(docker-compose config --services | grep -E 'dev|web|gem|lib|client|base' | head -n 1) bash -c "rubocop -a && rspec"; notify "Lint done"##joist lint and test

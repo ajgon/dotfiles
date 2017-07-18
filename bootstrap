@@ -220,6 +220,14 @@ install_dotfiles () {
             ;;
     esac
 
+    if [[ $(uname -s) == "Linux" ]]; then
+        $SHELL -c "cd \"$DOTFILES_ROOT/installs/\" && ./linux"
+    elif [[ $(uname -s) == "Darwin" ]]; then
+        $SHELL -c "cd \"$DOTFILES_ROOT/installs/\" && ./osx"
+    else
+        $SHELL -c "cd \"$DOTFILES_ROOT/installs/\" && ./other"
+    fi
+
     overwrite_all=false
     backup_all=false
     skip_all=false
