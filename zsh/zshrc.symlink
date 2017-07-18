@@ -1,6 +1,8 @@
 # Plugins
-source "$HOME/.zsh/autocomplete"
-source "$HOME/.zsh/git"
+source "$HOME/.zsh/autocomplete.zsh"
+source "$HOME/.zsh/git.zsh"
+source "$HOME/.zsh/history.zsh"
+source "$HOME/.zsh/key-bindings.zsh"
 
 # Custom ENVs
 export ONEPASSWORD_KEYCHAIN=~/1password/1Password.agilekeychain
