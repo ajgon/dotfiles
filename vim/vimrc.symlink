@@ -277,8 +277,6 @@ set hidden
 autocmd BufWritePre * :%s/\s\+$//e
 " Fix terminal
 silent !stty -ixon > /dev/null 2>/dev/null
-set lazyredraw
-set ttyfast
 " Make search better
 set incsearch
 set hlsearch
@@ -307,3 +305,10 @@ noremap   <Right>  <NOP>
 inoremap jj <esc>
 cnoremap jj <c-c>
 vnoremap v <esc>
+
+" Performance
+set synmaxcol=200
+set noshowmatch
+set regexpengine=1
+set lazyredraw
+set ttyfast
