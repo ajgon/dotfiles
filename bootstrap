@@ -303,7 +303,6 @@ install_dotfiles () {
 
     check_bash_suffix
 
-    restart_shell
 }
 
 framework_check () {
@@ -349,8 +348,6 @@ unset $INSTALL_BASH_IT
 unset $INSTALL_JANUS
 # Initialize
 check_shell
-
-git init ~/.vim/localhistory
 
 echo
 echo 'All installed!'
