@@ -12,7 +12,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'branch': 'legacy' }
 Plug 'editorconfig/editorconfig-vim'
 "Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-endwise'
@@ -23,10 +23,10 @@ Plug 'tpope/vim-surround'
 Plug 'cespare/vim-sbd'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ajgon/vim-historic'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'sjl/gundo.vim'
 Plug 'christoomey/vim-tmux-navigator'
-
+Plug 'SirVer/ultisnips'
 
 " JS
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'html.mustache'] }
@@ -101,6 +101,15 @@ if executable('rvm')
   let g:airline_section_x = '%{airline#util#wrap(airline#parts#filetype(),0)} %{airline#util#wrap(rvm#statusline(),0)}'
 endif
 
+" NerdTree
+let NERDTreeShowLineNumbers=0
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<C-tab>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+let g:UltiSnipsEnableSnipMate=1
 " vim-obsession
 autocmd VimEnter * Obsession `~/.vim/vim-session-path.sh`
 

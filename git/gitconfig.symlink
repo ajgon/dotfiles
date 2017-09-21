@@ -87,3 +87,5 @@
     email = igor@rzegocki.pl
     signingkey = 26B27548
 
+[rerere]
+	enabled = true
