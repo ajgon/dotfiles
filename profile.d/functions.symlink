@@ -29,6 +29,11 @@ function take () {
     mkdir -p "$@" && cd "$@"
 }
 
+# Run given docker image with current dicrectory mounted as workdir
+function dockit () {
+    docker run -it -v $(pwd):/data -w /data "$1" bash
+}
+
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
     local tmpFile="${@%/}.tar"
