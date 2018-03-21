@@ -12,6 +12,8 @@
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
 	<integer>1</integer>
+	<key>AppleWindowTabbingMode</key>
+	<string>manual</string>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>Tomorrow Night Eighties</key>
@@ -337,14 +339,12 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>JobName</key>
 	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
-	<true/>
-	<key>NSNavLastRootDirectory</key>
-	<string>~/.dotfiles/osx/iterm</string>
-	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
+	<integer>1</integer>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -360,7 +360,7 @@
 	gAKACoAN0xAJChEVGVdOUy5rZXlzoxITFIADgASABaMWFxiABoAHgAiACVpJZGVudGlm
 	aWVyVVdpZHRoVkhpZGRlblEwI0BowAAAAAAACNIhIiMkWiRjbGFzc25hbWVYJGNsYXNz
 	ZXNcTlNEaWN0aW9uYXJ5oiMlWE5TT2JqZWN00xAJCicrGaMSExSAA4AEgAWjLC0YgAuA
-	DIAIgAlRMSNAdCGdsi0OVtIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
+	DIAIgAlRMSNAdKGdsi0OVtIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
 	TlNLZXllZEFyY2hpdmVy0Tg5VUFycmF5gAEACAARABoAIwAtADIANwBGAEwAUQBcAGMA
 	ZgBoAGoAbABzAHsAfwCBAIMAhQCJAIsAjQCPAJEAnACiAKkAqwC0ALUAugDFAM4A2wDe
 	AOcA7gDyAPQA9gD4APwA/gEAAQIBBAEGAQ8BFAEjAScBLwFBAUQBSgAAAAAAAAIBAAAA
@@ -376,19 +376,14 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
-	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
-	<dict>
-		<key>TB Is Shown</key>
-		<integer>1</integer>
-	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>2289 317 445 77 1920 280 1280 800 </string>
+	<string>1475 833 445 77 -574 800 2560 1440 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>396 1568 620 392 -574 800 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>157 145 796 473 0 0 1280 777 </string>
+	<string>980 920 918 381 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>516 392 570 377 0 0 1280 777 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>152 50 585 377 0 0 1280 777 </string>
+	<string>574 -800 1280 777 574 -800 1280 800 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -959,7 +954,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>UbuntuMonoNerdFontCM-Regular 14</string>
+			<string>UbuntuMonoNerdFontCM-Regular 24</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -973,7 +968,9 @@
 			<key>Scrollback Lines</key>
 			<integer>1000</integer>
 			<key>Scrollback With Status Bar</key>
-			<true/>
+			<false/>
+			<key>Scrollback in Alternate Screen</key>
+			<false/>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1003,7 +1000,7 @@
 			<key>Tags</key>
 			<array/>
 			<key>Terminal Type</key>
-			<string>xterm-256color</string>
+			<string>screen-256color</string>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
@@ -1026,18 +1023,20 @@
 			<string>/Users/ajgon</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>996D7EF8-F9CF-44FF-BA9C-17E4FEF6BE47</string>
+	<string>E58598A9-DF83-4198-B631-41BF74B5F386</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
-	<true/>
+	<integer>1</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>512413918.81325001</real>
+	<real>528063163.64752197</real>
 	<key>OpenArrangementAtStartup</key>
 	<true/>
 	<key>OpenNoWindowsAtStartup</key>
@@ -1080,17 +1079,19 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/ajgon/.dotfiles/osx/iterm</string>
+	<string>~/.dotfiles/osx/iterm</string>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=32</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=56</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-08-31T13:32:09Z</date>
+	<date>2018-03-21T11:35:53Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1880,6 +1881,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.15</string>
+	<string>3.1.5</string>
 </dict>
 </plist>

@@ -12,7 +12,8 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
-Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'branch': 'legacy' }
+" relativenumber causes enormous lag
+"Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'branch': 'legacy' }
 Plug 'editorconfig/editorconfig-vim'
 "Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-endwise'
@@ -295,7 +296,8 @@ set backspace=indent,eol,start
 
 " cursorline and colorcolumn
 set colorcolumn=120
-set cursorline
+" cursorline causes enormous scroll lag
+"set cursorline
 hi ColorColumn ctermbg=239 ctermfg=white guibg=darkgrey guifg=white
 hi CursorLine ctermbg=239 cterm=none
 hi CursorLineNr ctermfg=43 cterm=none

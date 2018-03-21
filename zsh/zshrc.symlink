@@ -14,6 +14,7 @@ export ONEPASSWORD_KEYCHAIN=~/1password/1Password.agilekeychain
 export HOMEBREW_NO_ANALYTICS=1
 export PATH=~/.local/bin:$PATH
 export GPG_TTY=$(tty)
+export TERM="screen-256color"
 
 # Load ~/.exports, ~/.aliases, ~/.functions, ~/.fun, ~/.extra and ~/.passwords
 for file in ~/.{exports,aliases,functions,fun,extra,passwords}; do
@@ -32,3 +33,6 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 PROMPT='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
 
+if [ "$ALACRITTY" -eq 1 ]; then
+  tmux attach-session -t init
+fi
