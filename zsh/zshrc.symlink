@@ -12,7 +12,9 @@ source "$HOME/.zsh/fzf-marker.plugin.zsh"
 # Custom ENVs
 export ONEPASSWORD_KEYCHAIN=~/1password/1Password.agilekeychain
 export HOMEBREW_NO_ANALYTICS=1
-export PATH=~/.local/bin:$PATH
+export HOMEBREW_NO_INSECURE_REDIRECT=1
+export HOMEBREW_CASK_OPTS=--require-sha
+export PATH=~/.local/bin:~/Library/Python/2.7/bin:$PATH
 export GPG_TTY=$(tty)
 export TERM="screen-256color"
 
@@ -35,7 +37,3 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 PROMPT='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
-
-if [ "$ALACRITTY" -eq 1 ]; then
-  tmux attach-session -t init
-fi

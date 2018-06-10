@@ -36,6 +36,7 @@
     wip = !git add -A && git commit -m "WIP" -an --no-gpg-sign
     amend = commit --amend -an --no-edit
     up = !gitup commit
+    da = difftool -d
 
 [color]
     # Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -67,6 +68,23 @@
     attributesfile = ~/.gitattributes
     editor = vim
     pager = $HOME/.scripts/diff-highlight
+
+[diff]
+    # Detect copies as well as renames
+    renames = copies
+    # Enable an experimental heuristic that shifts the hunk boundary in an
+    # attempt to make the resulting patch easier to read.
+    indentHeuristic = true
+    tool = meld
+
+[difftool "meld"]
+    cmd = meld \"$LOCAL\" \"$REMOTE\"
+    path =
+    prompt = false
+
+[diff "bin"]
+    # Use `hexdump` to diff binary files
+    textconv = hexdump -v -C
 
 [homebrew]
     analyticsdisabled = true

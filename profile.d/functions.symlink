@@ -244,6 +244,22 @@ function docker() {
   $docker_exec "$@"
 }
 
+function rdp() {
+  cwd=$(pwd)
+  project_name=$(basename ${cwd})
+  docker_service_name=$(ruby -e "require 'yaml'; dc = YAML.load_file('docker-compose.yml'); print((%w[default dev web lib] & dc['services'].keys).first)")
+
+  tmux has-session -t ${project_name}
+  if [ $? != 0 ]
+  then
+    docker-compose build ${docker_service_name}
+    tmux new-session -d -n vim -s ${project_name} -c ${cwd} "vim -c 'NERDTree'"
+    tmux new-window -t ${project_name} -n shell -c ${cwd}
+    tmux new-window -t ${project_name} -n guard -c ${cwd} "docker-compose run --rm ${docker_service_name} bundle exec guard -i"
+  fi
+  tmux switch-client -t ${project_name}:vim
+}
+
 # transfer.sh
 transfer() {
     # check arguments

@@ -31,3 +31,9 @@ tmux/tmux.symlink/resurrect/*
 tmux/tmux.symlink/plugins/*
 !tmux/tmux.symlink/plugins/tpm
 !tmux/tmux.symlink/plugins/.keep
+config.symlink/gtk-2.0/gtkfilechooser.ini
+config.symlink/hub
+config.symlink/keyboard-maestro/
+config.symlink/mc/
+config.symlink/qnapi.ini
+config.symlink/configstore/update-notifier-npm.json
