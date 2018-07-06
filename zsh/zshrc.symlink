@@ -24,9 +24,6 @@ for file in ~/.{exports,aliases,functions,fun,extra,passwords}; do
 done
 unset file
 
-# Watch for guard notifications in projects
-killall entr; (find ~/Projects -maxdepth 2 -name .guard_result | entr -p ~/.scripts/notify-from-guard.rb /_ &)
-
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # Prompt Theme
