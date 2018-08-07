@@ -108,3 +108,5 @@
 
 [rerere]
 	enabled = true
+[fetch]
+	fsckobjects = false

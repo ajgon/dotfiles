@@ -6,7 +6,8 @@ call plug#begin('~/.vim/bundle')
 Plug 'embear/vim-localvimrc'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Shougo/unite.vim'
+"Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim'
 "Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
 Plug 'scrooloose/nerdcommenter'
@@ -28,6 +29,8 @@ Plug 'ajgon/vim-historic'
 Plug 'sjl/gundo.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'SirVer/ultisnips'
+Plug 'Valloric/YouCompleteMe'
+Plug 'craigemery/vim-autotag'
 
 " JS
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'html.mustache'] }
@@ -117,24 +120,54 @@ autocmd VimEnter * Obsession `~/.vim/vim-session-path.sh`
 " EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
+" Denite Fuzzy find files
+call denite#custom#option('default', {
+    \ 'prompt': '❯'
+    \ })
+
+call denite#custom#var('file_rec', 'command',
+    \ ['rg', '--files', '--glob', '!.git'])
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts',
+    \ ['--hidden', '--vimgrep', '--no-heading', '-S'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>',
+    \'noremap')
+call denite#custom#map('normal', '<Esc>', '<NOP>',
+    \'noremap')
+call denite#custom#map('normal', 'o', '<denite:do_action:default>',
+    \'noremap')
+call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>',
+    \'noremap')
+call denite#custom#map('normal', '<C-v>', '<denite:do_action:vsplit>',
+    \'noremap')
+call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>',
+    \'noremap')
+
+"nnoremap <Leader>p :<C-u>Denite file_rec<CR>
+nnoremap <silent> <Leader>p <C-W>l:Denite file_rec<cr>
+
 " Unite Fuzzy find files
-nnoremap <silent> <Leader>p <C-W>l:Unite -auto-resize file_rec/async<cr>
+"nnoremap <silent> <Leader>p <C-W>l:Unite -auto-resize file_rec/async<cr>
 
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-let g:unite_split_rule = 'botright'
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-let g:unite_enable_start_insert = 1
-let g:unite_source_hisory_yank_enable = 1
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts ='-i --smart-case --nogroup --nocolor'
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
-endif
+"call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"call unite#filters#sorter_default#use(['sorter_rank'])
+"let g:unite_split_rule = 'botright'
+"let g:unite_enable_ignore_case = 1
+"let g:unite_enable_smart_case = 1
+"let g:unite_enable_start_insert = 1
+"let g:unite_source_hisory_yank_enable = 1
+"if executable('ag')
+  "let g:unite_source_grep_command = 'ag'
+  "let g:unite_source_grep_default_opts ='-i --smart-case --nogroup --nocolor'
+  "let g:unite_source_grep_recursive_opt = ''
+  "let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
+"endif
 
-call unite#custom#source('file_rec/async,file_rec/git', 'ignore_globs', [])
+"call unite#custom#source('file_rec/async,file_rec/git', 'ignore_globs', [])
 "nnoremap <C-P> :Unite file_mru file_rec/async file<CR>
 "inoremap <C-P> <Esc>:Unite file_mru file_rec/async file<CR>
 "hi link UniteCursorLine CursorLine
