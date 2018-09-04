@@ -109,9 +109,9 @@ endif
 let NERDTreeShowLineNumbers=0
 
 " ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<C-tab>"
+let g:UltiSnipsExpandTrigger="<C-;>"
+let g:UltiSnipsJumpForwardTrigger="<C-tab>"
+let g:UltiSnipsJumpBackwardTrigger=""
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 let g:UltiSnipsEnableSnipMate=1
 " vim-obsession

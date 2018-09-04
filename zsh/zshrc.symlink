@@ -7,6 +7,7 @@ source "$HOME/.zsh/key-bindings.zsh"
 
 FZF_MARKER_CONF_DIR="$HOME/.marker"
 FZF_MARKER_COMMENT_COLOR="$fg[blue]"
+FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
 source "$HOME/.zsh/fzf-marker.plugin.zsh"
 
 # Custom ENVs

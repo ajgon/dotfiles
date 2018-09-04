@@ -120,6 +120,9 @@ alias cat="bat"
 # du
 alias du="ncdu -rr"
 
+# preview
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+
 # online copy-paste
 alias oncopy="curl 'https://cl1p.net/ajgon' -H 'Content-Type: application/x-www-form-urlencoded' --data \"content=$(pbpaste)\" -o /dev/null -s"
 alias onpaste="curl -s 'https://cl1p.net/ajgon' | grep '<textarea' | sed -E 's@<\/?textarea[^>]*>@@g' | pbcopy"
