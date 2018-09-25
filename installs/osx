@@ -1,4 +1,7 @@
+DOTFILES_ROOT="$HOME/.dotfiles"
+
 brew install fzf
 brew install gnu-sed --with-default-names
 brew install grep --with-default-names
 
+cp "${DOTFILES_ROOT}/scripts.symlink/git-jump" /usr/local/bin
