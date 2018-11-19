@@ -115,7 +115,7 @@ alias git="BROWSER='open -b com.google.Chrome' hub"
 alias npm-exec='PATH=$(npm bin):$PATH'
 
 # cat
-alias cat="bat"
+alias cat="bat -p"
 
 # du
 alias du="ncdu -rr"

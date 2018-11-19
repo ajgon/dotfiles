@@ -18,6 +18,7 @@ export HOMEBREW_CASK_OPTS=--require-sha
 export PATH=~/.local/bin:~/Library/Python/2.7/bin:$PATH
 export GPG_TTY=$(tty)
 export TERM="screen-256color"
+export GEM_HOME="${HOME}/.gem"
 
 # Load ~/.exports, ~/.aliases, ~/.functions, ~/.fun, ~/.extra and ~/.passwords
 for file in ~/.{exports,aliases,functions,fun,extra,passwords}; do
@@ -37,4 +38,4 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 PROMPT='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.rvm/bin:$GEM_HOME/bin"
