@@ -7,8 +7,8 @@ Xft.hintstyle: hintfull
 Xft.autohint: true
 
 ! -- Fonts -- !
-*.font: xft:Inconsolata:pixelsize=16
-*.boldFont: xft:Inconsolata:pixelsize=16
+*.font: xft:UbuntuMono Nerd Font Mono:style=Regular:size=12
+*.boldFont: xft:UbuntuMono Nerd Font Mono:style=Bold:size=12
 
 ! -- Scroll -- !
 *.scrollBar: false

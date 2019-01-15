@@ -1,0 +1,78 @@
+.TH KeePassC v.1.6.2
+.SH NAME
+KeePassC \- KeePassC is a curses-based password manager compatible to KeePass v.1.x and KeePassX
+.SH SYNOPSIS
+keepassc [options]
+.SH DESCRIPTION
+KeePassC is a password manager fully compatible to KeePass v.1.x and KeePassX. That is, your password database is fully encrypted with AES.
+.PP
+KeePassC is written in Python 3 and comes with a curses-interface. It is completely controlled with the keyboard.
+.PP
+KeePassC provides everything to read and edit the password databases. Watch http://raymontag.github.com/keepassc/ for a full feature list.
+.SH USAGE
+For a short introduction have a look at http://raymontag.github.com/keepassc/docu.html.
+.PP
+For help using the server have a look at http://raymontag.github.com/keepassc/server.html or at 'man keepassc-server' and 'man keepassc-agent'.
+.PP
+You can get help at any time by pressing F1 in the editor, file or database browser.
+.SH USAGE AS A CLIENT
+If you want to connect to a remote database created by 'keepassc-server' you can use 'keepassc' as a client.
+.PP
+To list entries on the command line similar to -e use -dc. In this case the client will connect to 'localhost:50000'. If you want to connect to another server you can specify his address by -as and -ps. To use TLS use -s. If you want to use the normal KeePassC-interface use -c with the named options.
+.PP
+Furthermore you can use the agent by using -a. 
+.SH OPTIONS
+.TP
+.B -h, --help
+show this help message and exit
+.TP
+.B --asroot
+parse option to execute keepassc as root user
+.TP
+.B -d DATABASE, --database DATABASE
+Path to database file.
+.TP
+.B -k KEYFILE, --keyfile KEYFILE
+Path to keyfile.
+.TP
+.B -c, --curses
+Use curses interface while using a remote connection.
+.TP
+.B -as ADDRESS_SERVER, --address_server ADDRESS_SERVER
+Server address (not required if using agent)
+.TP
+.B -ps PORT_SERVER, --port_server PORT_SERVER
+Server port (not required if using agent)
+.TP
+.B -pa PORT_AGENT, --port_agent PORT_AGENT
+Agent port
+.TP
+.B -a, --agent
+Use agent for remote connection
+.TP
+.B -dc, --direct_conn
+Connect directly to server
+.TP
+.B -s, --ssl
+Use SSL/TLS
+.TP
+.B -e ENTRY, --entry ENTRY
+Print entry with parsed title You will see a password
+prompt; leave it blank if you only want to use a key-
+file Just type a part of the entry title lower-case,
+it's case-insensitive and will search for matching
+string parts WARNING: Your passwords will be displayed
+directly on your command line!
+.TP
+.B -l, --log_level
+Set logging level for network use. Default is ERROR
+but for analyzing network flow INFO could be useful.
+Set it with keepassc [...] -l [...] to INFO
+.SH AUTHOR
+Karsten-Kai König <kkoenig@posteo.de>
+.SH LICENSE
+ KeePassC is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or at your option) any later version.
+.PP
+KeePassC is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+.PP
+You should have received a copy of the GNU General Public License along with KeePassC. If not, see <http://www.gnu.org/licenses/ >. 

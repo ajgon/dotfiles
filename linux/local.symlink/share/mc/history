@@ -1,0 +1,18 @@
+[input-def]
+0=*
+
+[input2]
+0=/home/ajgon/.dotfiles/osx/
+
+[cmdline]
+0=
+
+[Dir Hist New Right Panel]
+0=/home/ajgon/.dotfiles
+1=/home/ajgon/.dotfiles/osx
+
+[Dir Hist New Left Panel]
+0=/home/ajgon/.dotfiles/config.symlink/parcellite
+1=/home/ajgon/.dotfiles/config.symlink/mc
+2=/home/ajgon/.dotfiles/config.symlink
+3=/home/ajgon/.dotfiles
