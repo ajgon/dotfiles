@@ -3,16 +3,24 @@
 
 [input2]
 0=/home/ajgon/.dotfiles/osx/
+1=/home/ajgon/
 
 [cmdline]
-0=
+0=cd
+1=cd /vagrant
+2=
 
 [Dir Hist New Right Panel]
 0=/home/ajgon/.dotfiles
 1=/home/ajgon/.dotfiles/osx
+2=/home/ajgon/.gnupg
+3=/home/ajgon
+4=/vagrant
 
 [Dir Hist New Left Panel]
 0=/home/ajgon/.dotfiles/config.symlink/parcellite
 1=/home/ajgon/.dotfiles/config.symlink/mc
 2=/home/ajgon/.dotfiles/config.symlink
 3=/home/ajgon/.dotfiles
+4=/home/ajgon/.gnupg
+5=/home/ajgon

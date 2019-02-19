@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/ajgon/Downloads/Document.pdf" added="2019-02-14T09:41:36Z" modified="2019-02-14T13:30:09Z" visited="2019-02-14T09:41:37Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2019-02-14T13:30:09Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ajgon/Downloads/mieszkanie-brodowicza-luty.pdf" added="2019-02-14T09:41:58Z" modified="2019-02-14T09:41:58Z" visited="2019-02-14T09:41:58Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2019-02-14T09:41:58Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ajgon/Downloads/Historia_Rachunku_190214_143232.pdf" added="2019-02-14T13:32:20Z" modified="2019-02-14T13:32:20Z" visited="2019-02-14T13:32:21Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2019-02-14T13:32:20Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ajgon/Downloads/Historia_Rachunku_190214_143301.pdf" added="2019-02-14T13:32:49Z" modified="2019-02-14T13:32:49Z" visited="2019-02-14T13:32:50Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2019-02-14T13:32:49Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ajgon/Downloads/Historia_Rachunku_190214_143319.pdf" added="2019-02-14T13:33:07Z" modified="2019-02-14T13:33:07Z" visited="2019-02-14T13:33:08Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2019-02-14T13:33:07Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ajgon/Downloads/alior-2019.01.pdf" added="2019-02-14T13:41:17Z" modified="2019-02-14T13:41:17Z" visited="2019-02-14T13:41:18Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2019-02-14T13:41:17Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ajgon/Downloads/inteligo-PROJEKTY-2019.01.pdf" added="2019-02-14T13:41:17Z" modified="2019-02-14T13:41:17Z" visited="2019-02-14T13:41:18Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2019-02-14T13:41:17Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ajgon/Downloads/inteligo-REZERWA-2019.01.pdf" added="2019-02-14T13:41:17Z" modified="2019-02-14T13:41:17Z" visited="2019-02-14T13:41:18Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2019-02-14T13:41:17Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ajgon/Downloads/inteligo-IGOR-2019.01.pdf" added="2019-02-14T13:41:17Z" modified="2019-02-14T13:41:17Z" visited="2019-02-14T13:41:18Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2019-02-14T13:41:17Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/ajgon/Downloads/Umowa%20samozatrudnienie%20_Anna_Jaworska.pdf" added="2019-02-18T10:28:05Z" modified="2019-02-18T10:29:16Z" visited="2019-02-18T10:28:06Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox-esr %u&apos;" modified="2019-02-18T10:29:16Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
